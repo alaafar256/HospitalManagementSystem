@@ -1,6 +1,4 @@
 #ab1{
-    background:url("images/1.jpeg");
-	background-size:cover; 
-    height: 500px;
-    background-size: cover;
+	border-radius:0;background:url("images/1.jpeg");
+	background-size:cover;height:400px;
 }

@@ -6,45 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-     <script> 
-   
-      function validateForm() {
-var fname = document.getElementById('fn');
-var lname = document.getElementById('ln');
-var email = document.getElementById('em');
-var phonenumber = document.getElementById('pnumber');
-      var username = document.getElementById('uname');
-	  var password = document.getElementById('pass');
-	        if (fname == "" || lname=="" || uname=="") {
-       alert("No black values allowed");
-       return false;
-  }
-  else 
-  {
-	  return true ; 
-  }
-      if (password==""||email=="") {
-       alert("No black values allowed");
-       return false;
-  }
-  else 
-  {
-	  return true ; 
-  }
-        if (isNaN(phonenumber)||phobenumber=="") {
-       alert("No black values allowed");
-       return false;
-  }
-  else 
-  {
-	  return true ; 
-  }
-
-}
-   </script> 
-  
- </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
   <style type="text/css">
     #inputbtn:hover{cursor:pointer;}
   </style>
@@ -61,20 +24,20 @@ var phonenumber = document.getElementById('pnumber');
               <form class="form-group" method="post" action="func.php">
                 <div class="row">
 				<div class="col-md-4"><label>First Name: </label></div>
-                  <div class="col-md-8"><input type="text" name="fname" class="form-control" id = "fn" placeholder="Enter Your First Name" required /></div><br><br>
+                  <div class="col-md-8"><input type="text" name="fname" class="form-control" placeholder="Enter Your First Name" required/></div><br><br>
                   <div class="col-md-4"><label>Last Name: </label></div>
-                  <div class="col-md-8"><input type="text" name="lname" class="form-control" id ="ln" placeholder="Enter Your Last Name" required /></div><br><br>
+                  <div class="col-md-8"><input type="text" name="lname" class="form-control" placeholder="Enter Your Last Name" required/></div><br><br>
                   <div class="col-md-4"><label>User Name: </label></div>
-                  <div class="col-md-8"><input type="text" name="username" class="form-control" id ="uname" placeholder="Enter Your UserName" required /></div><br><br>
+                  <div class="col-md-8"><input type="text" name="username" class="form-control" placeholder="Enter Your UserName" required/></div><br><br>
                   <div class="col-md-4"><label>Email: </label></div>
-                  <div class="col-md-8"><input type="text" name="email" class="form-control"  id="em" placeholder="Enter Your Email" required /></div><br><br>
+                  <div class="col-md-8"><input type="text" name="email" class="form-control" placeholder="Enter Your Email" required/></div><br><br>
 				  <div class="col-md-4"><label>Password: </label></div>
-                  <div class="col-md-8"><input type="password" class="form-control" name="password" id ="pass" placeholder="Enter Your Password" required /></div><br><br><br>
+                  <div class="col-md-8"><input type="password" class="form-control" name="password" placeholder="Enter Your Password" required/></div><br><br><br>
                   <div class="col-md-4"><label>Phone Number: </label></div>
-                  <div class="col-md-8"><input type="text" name="phonenumber" class="form-control" id="pnumber" placeholder="Enter Your PhoneNumber" required /></div><br><br>
+                  <div class="col-md-8"><input type="text" name="phonenumber" class="form-control" placeholder="Enter Your PhoneNumber" required/></div><br><br>
                   
 				</div>
-                <center><input type="submit" id="inputbtn" name="SignUp_submit" value="Sign Up" onclick ="validateForm()" class="btn btn-primary"></center>
+                <center><input type="submit" id="inputbtn" name="SignUp_submit" value="Sign Up" class="btn btn-primary"></center>
               </form>
             </center>
             </div>

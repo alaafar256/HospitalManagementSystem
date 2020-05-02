@@ -12,7 +12,7 @@ if(isset($_POST['login_submit'])){
 		header("Location:admin-panel.php");
 	}
 	else
-		header("Location:error.php");
+		header("Location:SignUp.php");
 }
 if(isset($_POST['update_data']))
 {
@@ -31,10 +31,16 @@ if(isset($_POST['SignUp_submit'])){
 	$email=$_POST['email'];
 	$password=$_POST['password'];
 	$phonenumber=$_POST['phonenumber'];
-	 $query="insert into signup(fname,lname,username,email,password,phonenumber) values ('$fname','$lname','$username','$email','$password','$phonenumber');";
-	  $query="insert into login(username,password) values ('$username','$password');";
-	$result=mysqli_query($con,$query);		
+	$query="insert into signup(fname,lname,username,email,password,phonenumber)values('$fname','$lname','$username','$email','$password','$phonenumber');";
+	$query="insert into logintb(username,password)values('$username','$password');";
+	$result=mysqli_query($con,$query);
+	if($result)
+	{
+		
 		header("Location:admin-panel.php");
+	}
+	else
+		header("Location:error.php");
 }
 function display_docs()
 {
@@ -50,39 +56,22 @@ function display_docs()
 if(isset($_POST['doc_sub']))
 {
 	$name=$_POST['name'];
-    $spe=$_POST['spe'];
-	$query="insert into doctb(name,spe )values('$name','$spe')";
+	$query="insert into doctb(name)values('$name')";
 	$result=mysqli_query($con,$query);
-	header("Location:docerror.php");
-	
+	if($result)
+		header("Location:adddoc.php");
 }
 if(isset($_POST['doc_sub1']))
 {
-	$name=$_REQUEST['name'];
+	$name=$_POST['name'];
 	$query="delete from doctb where name='$name';";
-	$result=mysqli_query($con,$query);
-	if($result)
-		header("Location:deletedoctor.php");
-    else
-        header("Location:docerror.php");
-        
-}
-function get_doctors_details() {
-	global 	$con ;
-	$query = "select * from docapp" ; 
-	$result=mysqli_query($con , $query) ;
-	while ($row=mysqli_fetch_array($result)){
-		$name=$row['name']; 
-        $spe=$row['spe'];
-     
-		 echo "<tr> 
-		 <td>$name</td>
-		 <td>$spe</td> 
-		  
-		 </tr>" ;
+	$result=mysqli_query($con,$query) ;
+	if($result) {
+		header("Location:deletedoctor.php") ; 
 	}
-		 
-
+	else 
+	
+		header("Location:error.php") ; 
 	
 }
 function get_patient_details() {
@@ -117,7 +106,7 @@ function display_admin_panel(){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
 	crossorigin="anonymous">
@@ -131,9 +120,6 @@ function display_admin_panel(){
      <ul class="navbar-nav mr-auto">
        <li class="nav-item">
         <a class="nav-link" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="contact.php"><i class="fa fa-sign-out" aria-hidden="true"></i>Contact Us</a>
       </li>
        <li class="nav-item">
         <a class="nav-link" href="#"></a>
@@ -150,8 +136,7 @@ function display_admin_panel(){
     button:hover{cursor:pointer;}
     #inputbtn:hover{cursor:pointer;}
   </style>
-  <body style="padding-top:50px;background-color:blue background:url("images/1.jpeg");
-	background-size:cover;  " >
+  <body style="padding-top:50px;background-color:#3373FF  " >
  <div class="jumbotron" id="ab1"></div>
    <div class="container-fluid" style="margin-top:50px;">
     <div class="row" >
@@ -160,10 +145,9 @@ function display_admin_panel(){
       <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" style="color:#34D8DF" aria-controls="home">Appointment</a>
       <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" style="color:#34D8DF" aria-controls="profile">Payment Status</a>
       <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab"style="color:#34D8DF" aria-controls="messages">Prescription</a>
-       <a href="section.php" style="color:#34D8DF" class ="list-group-item  ">Doctors Section</a>
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" style="color:#34D8DF" aria-controls="settings">Doctors Section</a>
        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings1" role="tab" style="color:#34D8DF" aria-controls="settings1">Delete Doctor</a>
-       <a href="patient_details.php" style="color:#34D8DF" class ="list-group-item  ">Patient Details </a>
-       <a href="contact.php" style="color:#34D8DF" class ="list-group-item  ">Contact Us </a>
+       <a href="patient_details.php" style="color:#34D8DF" class ="list-group-item  ">Patient Details </a> 
 	   
     </div><br>
   </div>
@@ -177,13 +161,13 @@ function display_admin_panel(){
               <form class="form-group" method="post" action="appointment.php">
                 <div class="row">
                   <div class="col-md-4"><label style="color:#34D8DF">First Name:</label></div>
-                  <div class="col-md-8"><input type="text" class="form-control" required name="fname"></div><br><br>
+                  <div class="col-md-8"><input type="text" class="form-control" name="fname"></div><br><br>
                   <div class="col-md-4"><label style="color:#34D8DF" >Last Name:</label></div> 
-                  <div class="col-md-8"><input type="text" class="form-control" required  name="lname"></div><br><br>
+                  <div class="col-md-8"><input type="text" class="form-control"  name="lname"></div><br><br>
                   <div class="col-md-4"><label style="color:#34D8DF" >Email ID:</label></div>
-                  <div class="col-md-8"><input type="text"  class="form-control" required name="email"></div><br><br>
+                  <div class="col-md-8"><input type="text"  class="form-control" name="email"></div><br><br>
                   <div class="col-md-4"><label style="color:#34D8DF" >Contact Number:</label></div>
-                  <div class="col-md-8"><input type="text" class="form-control"  required  name="contact"></div><br><br>
+                  <div class="col-md-8"><input type="text" class="form-control"  name="contact"></div><br><br>
                   <div class="col-md-4"><label style="color:#34D8DF" >Doctor:</label></div>
                   
                   <div class="col-md-8">
@@ -216,12 +200,12 @@ function display_admin_panel(){
         <div class="card">
           <div class="card-body">
             <form class="form-group" method="post" action="func.php">
-              <input type="text" name="contact" class="form-control"  placeholder="Enter Contact"><br>
+              <input type="text" name="contact" class="form-control" placeholder="Enter Contact"><br>
               <select name="status" class="form-control">
                 <option value="Paid">Paid</option>
                 <option value="Pay later">Pay later</option>
               </select><br><hr>
-              <input type="submit" value="update" name="Update_data" class="btn btn-primary">
+              <input type="submit" value="update" name="update_data" class="btn btn-primary">
             </form>
           </div>
         </div><br><br>
@@ -237,7 +221,7 @@ function display_admin_panel(){
       </div>
       <div class="tab-pane fade" id="list-settings1" role="tabpanel" aria-labelledby="list-settings1-list">
 	    <form class="form-group" method="post" action="func.php">
-	    <label style="color:#34D8DF" >Doctor name: </label>
+	    <label>Doctor name: </label>
           <input type="text" name="name" placeholder="Enter Doctor Name" class="form-control">
           <br>
           <input type="submit" name="doc_sub1" value="Delete Doctor" class="btn btn-primary">

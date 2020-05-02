@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php include("func.php");?>
+
 <html >
   <head> 
      <title> patient details </title> 
@@ -9,6 +10,7 @@
   
    </head>
 <body style="background:url('images/1.jpeg'); background-size: cover;>
+
  <div class = "" > </div> 	
  <div class="container">
      <div class = "card" >
@@ -43,7 +45,8 @@
 </table>
   </div> 
   </div> 	
-</div>  
+</div>    
+    <!-- Bootstrap CSS -->   <!-- jquery -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 	  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"

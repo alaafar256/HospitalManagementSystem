@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("localhost","root","","hmsdb");
+$con=mysqli_connect("localhost","root","alaafarouk812","hmsdb");
 if(isset($_POST['search_submit'])){
   $contact=$_POST['contact'];
  $query="select * from appointmenttb where contact='$contact';";
@@ -30,7 +30,6 @@ if(isset($_POST['search_submit'])){
   </thead>
   <tbody>
   ';
- if(mysqli_num_rows($result)==1){
   while($row=mysqli_fetch_array($result)){
     $fname=$row['fname'];
     $lname=$row['lname'];
@@ -46,9 +45,7 @@ if(isset($_POST['search_submit'])){
       <td>'.$doctor.'</td>
       <td>'.$payment.'</td>
     </tr>';
-  }}
- else
-		header("Location:error2.php");
+  }
 echo '</tbody></table></div> 
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

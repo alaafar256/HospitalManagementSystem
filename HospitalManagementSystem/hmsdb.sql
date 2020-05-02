@@ -35,7 +35,7 @@ CREATE TABLE `appointmenttb` (
   `contact` varchar(100) NOT NULL,
   `doctor` varchar(100) NOT NULL,
   `payment` varchar(400) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `appointmenttb`
@@ -54,7 +54,7 @@ INSERT INTO `appointmenttb` (`fname`, `lname`, `email`, `contact`, `doctor`, `pa
 
 CREATE TABLE `doctb` (
   `name` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `doctb`
@@ -74,11 +74,11 @@ INSERT INTO `doctb` (`name`) VALUES
 --
 
 CREATE TABLE `doctorapp` (
-  `fname` varchar(40) CHARACTER SET utf8mb4  NOT NULL,
-  `lname` varchar(40) CHARACTER SET utf8mb4  NOT NULL,
-  `email` varchar(40) CHARACTER SET utf8mb4  NOT NULL,
-  `contact` varchar(40) CHARACTER SET utf8mb4  NOT NULL,
-  `docapp` varchar(100) CHARACTER SET utf8mb4  NOT NULL
+  `fname` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `lname` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `email` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `contact` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `docapp` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -109,7 +109,7 @@ INSERT INTO `doctorapp` (`fname`, `lname`, `email`, `contact`, `docapp`) VALUES
 CREATE TABLE `logintb` (
   `username` varchar(40) NOT NULL,
   `password` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `logintb`
@@ -131,7 +131,7 @@ CREATE TABLE `signup` (
   `email` varchar(40) NOT NULL,
   `password` varchar(40) NOT NULL,
   `phonenumber` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `signup`

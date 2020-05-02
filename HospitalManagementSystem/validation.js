@@ -1,12 +1,12 @@
-.textInput {
-  border: none;
-  height: 28px;
-  margin: 2px;
-  border: 1px solid #6B7363;
-  font-size: 1.2em;
-  padding: 5px;
-  width: 95%;
-}
-.textInput:focus {
-  outline: none;
+function validateForm() {
+  var x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+  var y = document.forms["myForm"]["phonenumber"].value;
+   if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
 }

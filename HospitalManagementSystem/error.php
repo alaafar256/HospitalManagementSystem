@@ -10,7 +10,7 @@
   </head>
   <body style="background-color:#3498DB;color:white;padding-top:100px;text-align:center;">
     <h3>Your username or password was incorrect.<br>Please try again.</h3><br><br>
-    <a href="index2.php" class="btn btn-outline-light">Try Again</a>
+    <a href="index.php" class="btn btn-outline-light">Try Again</a>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
